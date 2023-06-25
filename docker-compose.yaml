@@ -1,0 +1,29 @@
+version: '3'
+services:
+  nginx:
+    build: ./Frontend
+    ports:
+      - "8080:80"
+    networks:
+      linkShrt-network:
+        ipv4_address: 172.16.238.10
+  couchdb:
+    build: ./DB
+    networks:
+      linkShrt-network:
+        ipv4_address: 172.16.238.11
+  go-routines:
+    build: ./Backend
+    networks:
+      linkShrt-network:
+        ipv4_address: 172.16.238.12
+    environment:
+      - COUCHDB_URL=http://172.16.238.11:5984
+
+networks:
+  linkShrt-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24

@@ -1,0 +1,167 @@
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+nav {
+  background: #281733;
+  /* Set the navbar to fixed position */
+  position: fixed;
+  /* Position the navbar at the top of the page */
+  top: -12rem;
+  width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  text-align: left;
+  display: flex;
+  transition: top 0.5s;
+}
+
+menu {
+  padding-left: 55vw;
+  text-align: right;
+}
+
+img {
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+body {
+  max-width: 75%;
+  margin: auto;
+  font-weight: 300;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  background: #281733;
+  color: #c4c1f0;
+  padding-top: 9rem;
+}
+
+a {
+  color: #666485;
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  color: hsl(244, 14%, 60%)
+}
+
+p {
+  line-height: 1.5
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  color: #fff;
+}
+
+nav_header {
+  font-weight: 700;
+  color: #666485;
+  font-size: 1.25rem;
+}
+
+nav_header:hover {
+  color: hsl(244, 14%, 60%)
+}
+
+nav_subheader {
+  font-weight: 400;
+  color: #666485;
+  font-size: 1.15rem;
+}
+
+h2 {
+  font-weight: 500;
+  color: #ebeafa;
+  font-size: 2rem;
+}
+
+h3 {
+  font-weight: 400;
+  color: #ebeafa;
+  font-size: 1.5rem;
+}
+
+hr {
+  height: .125rem;
+  border: none;
+  background: #ffffff1a;
+  margin: 1.5rem 0;
+}
+
+section.content {
+  padding: 0 1.25rem;
+  font-size: 1.15rem;
+}
+
+footer {
+  padding: 0.2rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #666485;
+}
+
+.grid_container {
+  display: grid;
+  gap: 2rem;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.wcm_pane {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row: 1;
+}
+
+.me_pane {
+  scroll-margin-top: 10rem;
+  grid-column: 1;
+  grid-row: 2;
+  height: 80%;
+  /*border: 2px solid;
+  border-radius: 5px;
+  border-color: #ffffff1a;
+  background: #ffffff10;*/
+}
+
+.prj_pane {
+  scroll-margin-top: 10rem;
+  grid-column: 2;
+  grid-row: 2;
+  height: 80%;
+  /*border: 2px solid;
+  border-radius: 5px;
+  border-color: #ffffff1a;
+  background: #ffffff10;*/
+}
+
+/* Lado color palette
+#63f0c8
+#72f7b4
+#7ffe9c
+#c4df7a
+#f2b945
+#e79568
+#dc6080
+#d89a9e
+#d3c0b6
+#988479
+*/
