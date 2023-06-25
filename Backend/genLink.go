@@ -17,7 +17,8 @@ func reqHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
 		query := r.URL.Query().Get("q")
-		//fmt.Fprintf(w, "GET request successful, query: %s\n", query)
+		fmt.Printf("GET request successful, query: %s\n", query)
+
 		dest_data, err := linkLookup.GetDest(query)
 		if err != nil {
 			fmt.Println(err)
@@ -35,7 +36,7 @@ func reqHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 	case "POST":
-		fmt.Fprintf(w, "Post from website! r.PostFrom = %v\n", r.PostForm)
+		fmt.Println("POST request received. Destination: ", r.PostFormValue("dest"))
 		dest := r.PostFormValue("dest")
 
 		// Check if dest is aleady in the database
@@ -46,10 +47,14 @@ func reqHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		if len(dest_data.Rows) == 0 {
-			writeLink.AddNew(dest)
-			fmt.Fprint(w, "Link added:\n Use http://localhost:3000/shrt?q="+ref+" to access it.")
+			status, err := writeLink.AddNew(dest)
+			if err != nil {
+				fmt.Println(err)
+			}
+			fmt.Println(status)
+			fmt.Fprint(w, "Link added:\n Use http://localhost:8080/shrt?q="+ref+" to access it.")
 		} else {
-			fmt.Fprint(w, "Link already exists:\n Use http://localhost:3000/shrt?q="+ref+" to access it.")
+			fmt.Fprint(w, "Link already exists:\n Use http://localhost:8080/shrt?q="+ref+" to access it.")
 		}
 
 	default:

@@ -1,0 +1,39 @@
+id"_design/LinkRefView"
+
+{
+ "id": "_design/LinkRefView",
+ "key": "_design/LinkRefView",
+ "value": {
+  "rev": "7-143c999e8bb63ab783196c80825aef78"
+ },
+ "doc": {
+  "_id": "_design/LinkRefView",
+  "_rev": "7-143c999e8bb63ab783196c80825aef78",
+  "views": {
+   "LinkRef": {
+    "map": "function(doc) {\n  emit(doc.ref, doc.dest);\n}"
+   }
+  },
+  "language": "javascript"
+ }
+}
+
+id"_design/LinkTime"
+
+{
+ "id": "_design/LinkTime",
+ "key": "_design/LinkTime",
+ "value": {
+  "rev": "2-f46ebf7e074daa21df8cf23220b61b5e"
+ },
+ "doc": {
+  "_id": "_design/LinkTime",
+  "_rev": "2-f46ebf7e074daa21df8cf23220b61b5e",
+  "views": {
+   "LinkTime": {
+    "map": "function(doc) {\n  emit(doc.ref, doc.timestamp);\n}"
+   }
+  },
+  "language": "javascript"
+ }
+}

@@ -12,13 +12,14 @@ services:
     networks:
       linkShrt-network:
         ipv4_address: 172.16.238.11
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=passwd
   go-routines:
     build: ./Backend
     networks:
       linkShrt-network:
         ipv4_address: 172.16.238.12
-    environment:
-      - COUCHDB_URL=http://172.16.238.11:5984
 
 networks:
   linkShrt-network:
